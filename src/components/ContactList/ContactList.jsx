@@ -1,6 +1,6 @@
 import css from './ContactList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { remove, getContacts } from '../../redux/contactsSlice';
+import { deleteContact, getContacts } from '../../redux/contactsSlice';
 import { getFilter } from '../../redux/filterSlice';
 import { MdOutlineDeleteForever } from "react-icons/md";
 import { IconContext } from 'react-icons';
@@ -24,7 +24,7 @@ export const ContactList = () => {
   const dispatch = useDispatch();
 
   const handleDelete = (id) => {
-    dispatch(remove(id));
+    dispatch(deleteContact(id));
     Notiflix.Notify.success('Contact was successfully deleted');
   };
 

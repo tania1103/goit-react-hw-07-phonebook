@@ -3,7 +3,7 @@ import Notiflix from 'notiflix';
 import './ContactForm.module.css';
 import { nanoid } from 'nanoid';
 import { useSelector, useDispatch } from 'react-redux';
-import { add, getContacts } from '../../redux/contactsSlice';
+import { addContact, getContacts } from '../../redux/contactsSlice';
 
  const ContactForm = () => {
   const [name, setName] = useState('');
@@ -53,7 +53,7 @@ import { add, getContacts } from '../../redux/contactsSlice';
 
     if (!checkNewName(name)) {
       const newContact = { id: nanoid(), name, number };
-      dispatch(add(newContact));
+      dispatch(addContact(newContact));
       Notiflix.Notify.success(`Contact ${name} added successfully!`);
       reset();
     } else {
